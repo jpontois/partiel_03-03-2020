@@ -1,0 +1,39 @@
+<nav>
+    <ul>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li>
+                <a href="{{ path('logout') }}">Se déconnecter</a>
+            </li>
+
+            <li>
+                <a href="{{ path('profil') }}">Gestion profil</a>
+            </li>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <li>
+                    <a href="{{ path('user') }}">Gestion utilisateurs</a>
+                </li>
+            {% endif %}
+
+        {% else %}
+            <li>
+                <a href="{{ path('signin') }}">S'inscrire</a>
+            </li>
+
+            <li>
+                <a href="{{ path('login') }}">Se connecter</a>
+            </li>
+        {% endif %}
+
+        {% if is_granted('ROLE_USER') %}
+            <li>
+                <a href="{{ path('home') }}">Articles</a>
+            </li>
+        {% endif %}
+        {% if is_granted('ROLE_REVIEWER') %}
+            <li>
+                <a href="{{ path('gestionArticle') }}">Validation/Publication</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

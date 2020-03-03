@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles | {{ article.name }}{% endblock %}
+
+{% block body %}
+
+    <h1>Articles</h1>
+    <h2>{{ article.name }}</h2>
+    
+    <a class="BoutonCRUD" href="{{ path('home') }}">Retour à la liste des articles</a>
+
+    <ul>
+        {% if article.editor is not null %}
+            <li><a href="{{ path('editorDetail', {'id' : article.editor.id}) }}">{{ article.editor.name }}</a></li>
+        {% endif %}
+        <li>{{ article.plateform }}</li>
+        <li>{{ article.releaseDate|date('d m Y') }}</li>
+        <li>{{ article.description }}</li>
+    </ul>
+
+{% endblock %}
+

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles | Tous{% endblock %}
+
+{% block body %}
+
+    <h1>Articles</h1>
+    <h2>Tous les articles</h2>
+    
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a class="BoutonCRUD" href="{{ path('articleCreate') }}">Nouveau</a>
+    {% endif %}
+
+    <ul>
+        {% for article in article %}
+            <li>
+                <h3> {{ article.title }} </h3>
+                <h4>{{ article.author }} - {{ article.publicationDate|date('d m Y') }}</h4>
+                <h5>{{ article.validated }} - {{ article.published }}</h5>
+                <p>{{ article.content }}</p>
+
+                {% if is_granted("ROLE_REVIEWER") %}
+                    <a class="BoutonCRUD" href="{{ path('articleEdit', {'id' : article.id}) }}">Editer</a>
+                    <a class="BoutonCRUD" href="{{ path('articleValidate', {'id' : article.id}) }}">Valider</a>
+                {% endif %}
+
+                {% if is_granted("ROLE_COMMUNICATION") %}
+                    <a class="BoutonCRUD" href="{{ path('articlePublish', {'id' : article.id}) }}">Publier</a>
+                    <a class="BoutonCRUD" href="{{ path('articleDelete', {'id' : article.id}) }}">Supprimer</a>
+                {% endif %}
+
+            </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

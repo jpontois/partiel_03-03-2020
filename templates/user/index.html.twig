@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil | Administration{% endblock %}
+
+{% block body %}
+
+    <h1>Espace administrateur</h1>
+    <h2>Gestion des utilisateurs</h2>
+    
+    <a class="BoutonCRUD" href="{{ path('signin') }}">Nouveau</a>
+
+    <ul>
+        {% for user in user %}
+            <li>
+                <h3>{{ user.login }} - {{ user.roles[0] }} <h3>
+
+                <a class="BoutonCRUD" href="{{ path('userEdit', {'id' : user.id}) }}">Editer</a>
+                <a class="BoutonCRUD" href="{{ path('userDelete', {'id' : user.id}) }}">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

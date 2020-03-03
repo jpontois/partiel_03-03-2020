@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+.alertMsg {
+    padding: 3px 20px;
+    margin: 20px;
+    display: inline-block;
+    background-color: rgb(200, 25, 25);
+    border-radius: 40px;
+    color: white;
+}
+
+h1, h2, h3, h4, p {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+main {
+    padding-top: 20px;
+}
+
+main a:link, main a:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+main a:hover {
+    color: orange;
+}
+
+main li {
+    margin-top: 30px;
+    list-style: none;
+}
+
+nav {
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+nav a:link, nav a:visited {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 50px;
+    color: white;
+}
+
+nav a:hover {
+    color: orange;
+}
+
+form {
+    display: inline-block;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+form input, form label{
+    width: 100%;
+}
+
+form input {
+    line-height: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+
+form input {
+    line-height: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+
+form textarea {
+    width: calc(100% - 10px);
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    border-color: rgb(200,200,200);
+}
+
+form li {
+    margin: 0;
+    padding: 10px;
+    font-size: 13px;
+    color: rgb(200, 25, 25);
+}
+
+form select {
+    height: 30px;
+    min-width: 28%;
+    margin: 0 1%;
+    font-size: 14px;
+}
+
+form div>div {
+    margin-top: 20px;
+}
+
+form button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: white;
+}
+
+form button:hover {
+    background-color: rgb(50,50,50);
+}
+
+.BoutonCRUD:link, .BoutonCRUD:visited {
+    padding: 2px 15px;
+    border-radius: 40px;    
+    font-size: 12px;
+    background-color: rgb(230,230,230);
+}
+
+.formLogin {
+    margin-top: 20px;
+}
