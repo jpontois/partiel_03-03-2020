@@ -50,7 +50,7 @@ class ArticleController extends AbstractController
 
         $criteria = new Criteria();
         $criteria->where(
-            Criteria::expr()->neq('login', $this->getUser()->getLogin()),
+            Criteria::expr()->neq('author', $this->getUser()->getLogin()),
             Criteria::expr()->eq('published', false)
         );
 
@@ -111,7 +111,7 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/article/create", name="articleCreate")
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_REVIEWER")
      */
     public function create(Request $request)
     {
