@@ -21,11 +21,17 @@
 
                 {% if is_granted("ROLE_REVIEWER") %}
                     <a class="BoutonCRUD" href="{{ path('articleEdit', {'id' : article.id}) }}">Editer</a>
-                    <a class="BoutonCRUD" href="{{ path('articleValidate', {'id' : article.id}) }}">Valider</a>
+
+                    {% if article.validated != true %}
+                        <a class="BoutonCRUD" href="{{ path('articleValidate', {'id' : article.id}) }}">Valider</a>
+                    {% endif %}
                 {% endif %}
 
                 {% if is_granted("ROLE_COMMUNICATION") %}
-                    <a class="BoutonCRUD" href="{{ path('articlePublish', {'id' : article.id}) }}">Publier</a>
+                    {% if article.published != true %}
+                        <a class="BoutonCRUD" href="{{ path('articlePublish', {'id' : article.id}) }}">Publier</a>
+                    {% endif %}
+
                     <a class="BoutonCRUD" href="{{ path('articleDelete', {'id' : article.id}) }}">Supprimer</a>
                 {% endif %}
 
